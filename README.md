@@ -7,7 +7,6 @@
 - The "accuracy" is the percentage of passengers I correctly predicted
 
 
----
 
 # Getting the data
 

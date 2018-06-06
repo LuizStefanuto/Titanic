@@ -10,4 +10,7 @@
 
 # Getting the data
 
+- from Anaconda Prompt, used the kaggle API with the command 'kaggle competitions download -c titanic'
+
+
 

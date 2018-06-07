@@ -64,11 +64,19 @@ for dataset in combine:
 ```
 
 - drop "Name" and "PassengerId" since they may not contribute to the analysis
+
 ```python
 
 train_df = train_df.drop(['Name', 'PassengerId'], axis=1)
 test_df = test_df.drop(['Name'], axis=1)
 combine = [train_df, test_df]
+```
+- Convert "Sex" to 0s and 1s
+
+```python
+
+for dataset in combine:
+    dataset["Sex"] = dataset["Sex"].map({"female":1, "male":0}).astype(int)
 ```
 
 - Complete "Age" feature

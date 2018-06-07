@@ -40,3 +40,6 @@ train_df.info()
 - create a "Fare" range
 
 - The assumption that women, children and upper-class passengers were more likely to have survived can be added to the analysis
+
+
+# Analysing the data

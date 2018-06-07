@@ -24,4 +24,6 @@ test_df = pd.read_csv('./test.csv')
 
 # Preparing the data
 
-
+```python
+train_df.info()
+```

@@ -29,4 +29,6 @@ train_df.info()
 ```
 ![](IMG/Screenshot-2018-6-7%20Titanic.png)
 
+- drop "Cabin" feature since it is mostly incomplete
+- "Name", "Ticket" and "PassangerId" features can be droped since they may not contribute to the analysis
 

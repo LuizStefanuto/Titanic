@@ -39,7 +39,10 @@ train_df.info()
 - turn "Age" into age bands
 - create a "Fare" range
 
-- The assumption that women, children and upper-class passengers were more likely to have survived can be added to the analysis
-
-
 # Analysing the data
+
+- The assumption that women, children and upper-class passengers were more likely to have survived can be added to the analysis
+- Pivoting features
+```python
+train_df[['Pclass', 'Survived']].groupby(['Pclass'], as_index=False).mean().sort_values(by='Survived', ascending=False)
+```

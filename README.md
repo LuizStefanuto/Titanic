@@ -11,6 +11,7 @@
 # Getting the data
 
 - from Anaconda Prompt, used the kaggle API with the command `kaggle competitions download -c titanic`
+- created two dataframes with the pandas package
 
 ```python
 
@@ -22,6 +23,8 @@ test_df = pd.read_csv('./test.csv')
 ```
 
 # Preparing the data
+
+- check datatypes and missing values
 
 ```python
 train_df.info()

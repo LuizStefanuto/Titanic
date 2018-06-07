@@ -27,4 +27,4 @@ test_df = pd.read_csv('./test.csv')
 ```python
 train_df.info()
 ```
-![](IMG/Screenshot-2018-6-7 Titanic.png)
+![](IMG/Screenshot-2018-6-7Titanic.png)

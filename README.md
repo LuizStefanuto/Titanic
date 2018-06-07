@@ -33,6 +33,25 @@ train_df.info()
 
 - drop "Cabin" feature since it is mostly incomplete
 - "Name", "Ticket" and "PassangerId" features can be droped since they may not contribute to the analysis
+
+```python
+
+train_df = train_df.drop(['Ticket', 'Cabin'], axis=1)
+test_df = test_df.drop(['Ticket', 'Cabin'], axis=1)
+combine = [train_df, test_df]
+
+```
+- extract titles from "Name"
+```python
+
+
+for dataset in combine:
+    dataset['Title'] = dataset.Name.str.extract(' ([A-Za-z]+)\.', expand=False)
+
+pd.crosstab(train_df['Title'], train_df['Sex'])
+
+```
+
 - Complete "Age" feature
 - Complete "Embarked" feature
 - create "Family" feature with "SibSp" and "Parch", to get a total count of family members

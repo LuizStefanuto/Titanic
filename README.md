@@ -31,8 +31,7 @@ train_df.info()
 ```
 ![](IMG/Screenshot-2018-6-7%20Titanic.png)
 
-- drop "Cabin" feature since it is mostly incomplete
-- "Name", "Ticket" and "PassangerId" features can be droped since they may not contribute to the analysis
+- drop "Cabin" and "Ticket" features since Cabin is mostly incomplete and Ticket may not contribute to the analysis
 
 ```python
 
@@ -41,15 +40,35 @@ test_df = test_df.drop(['Ticket', 'Cabin'], axis=1)
 combine = [train_df, test_df]
 
 ```
-- extract titles from "Name"
+- extract titles from "Name", creating a new column called 'Titles'
 ```python
-
 
 for dataset in combine:
     dataset['Title'] = dataset.Name.str.extract(' ([A-Za-z]+)\.', expand=False)
 
-pd.crosstab(train_df['Title'], train_df['Sex'])
+```
+- replace rare titles for "Rare", group similiar titles and convert the categorical titles to ordinal
+```python
+for dataset in combine:
+    dataset['Title'] = dataset['Title'].replace(['Lady', 'Countess','Capt', 'Col',\
+ 	'Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona'], 'Rare')
 
+    dataset['Title'] = dataset['Title'].replace('Mlle', 'Miss')
+    dataset['Title'] = dataset['Title'].replace('Ms', 'Miss')
+    dataset['Title'] = dataset['Title'].replace('Mme', 'Mrs')
+    
+    title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}
+for dataset in combine:
+    dataset['Title'] = dataset['Title'].map(title_mapping)
+    dataset['Title'] = dataset['Title'].fillna(0)
+```
+
+- drop "Name" and "PassengerId" since they may not contribute to the analysis
+```python
+
+train_df = train_df.drop(['Name', 'PassengerId'], axis=1)
+test_df = test_df.drop(['Name'], axis=1)
+combine = [train_df, test_df]
 ```
 
 - Complete "Age" feature

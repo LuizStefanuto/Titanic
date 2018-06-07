@@ -28,3 +28,5 @@ test_df = pd.read_csv('./test.csv')
 train_df.info()
 ```
 ![](IMG/Screenshot-2018-6-7%20Titanic.png)
+
+

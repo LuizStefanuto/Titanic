@@ -79,7 +79,10 @@ for dataset in combine:
     dataset["Sex"] = dataset["Sex"].map({"female":1, "male":0}).astype(int)
 ```
 
-- Complete "Age" feature
+- Complete "Age" feature by using the value that occurs the most in "Gender" and "Pclass"
+
+
+
 - Complete "Embarked" feature
 - create "Family" feature with "SibSp" and "Parch", to get a total count of family members
 - turn "Age" into age bands
